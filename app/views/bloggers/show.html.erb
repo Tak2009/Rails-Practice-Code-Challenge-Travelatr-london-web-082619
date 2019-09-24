@@ -1,2 +1,11 @@
-<h1>Destinations#show</h1>
-<p>Find me in app/views/destinations/show.html.erb</p>
+<h1>Show</h1>
+<div>
+
+<label>Name: <%= @blogger.name %> </label><br>
+<label>Bio: <%= @blogger.bio %></label><br>
+<label>Age: <%= @blogger.age%></label><br>
+</div><br>
+
+<%= link_to "Edit??", edit_blogger_path(@blogger) %>
+<%= link_to "Index??", bloggers_path %>
+

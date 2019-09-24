@@ -1,2 +1,12 @@
-<h1>Destinations#index</h1>
-<p>Find me in app/views/destinations/index.html.erb</p>
+<h1>Bloggers</h1>
+<%= link_to "Add?", new_blogger_path %>
+<div>
+<% @bloggers.each do |blogger| %>
+    <tr>
+    <td><%= link_to blogger.name, blogger_path(blogger) %></td>
+    <td><%= link_to 'Edit', edit_blogger_path(blogger) %></td>
+    <td><%= link_to 'Destroy', blogger_path(blogger), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</div><br>
+<% end %>
+
