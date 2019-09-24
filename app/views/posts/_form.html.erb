@@ -1,0 +1,25 @@
+<% if @post.errors.any? %>
+  <div id = "error_explanation">
+    <h2>
+        <%= pluralize(@post.errors.count, "error") %>
+        prohibited this form being saved
+    </h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@post) do |f|%>
+    <%= f.label :title, "Title:"%>
+    <%= f.text_field :title %>
+    <%= f.label :content, "Content:"%>
+    <%= f.text_area :content %>
+    <%= f.label :likes, "Likes:"%>
+    <%= f.number_field :likes %>
+    <%= f.collection_select :blogger_id, Blogger.all, :id, :name%>
+    <%= f.collection_select :destination_id, Destination.all, :id, :name %>
+    <%= f.submit%>
+<% end %>
