@@ -1,0 +1,12 @@
+<h1>Destination</h1>
+<%= link_to "Add?", new_destination_path %>
+<div>
+<% @destinations.each do |destination| %>
+    <tr>
+    <td><%= link_to destination.name, destination_path(destination) %></td>
+    <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
+    <td><%= link_to 'Destroy', destination_path(destination), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</div><br>
+<% end %>
+

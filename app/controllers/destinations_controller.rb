@@ -38,4 +38,11 @@ class DestinationsController < ApplicationController
     Destination.destroy(params[:id])
     redirect_to destinations_path
   end
+  
+  private
+
+  def destination_params
+    params.require(:destination).permit!
+    # params.require(:blogger).permit(:name, :bio, :age)
+  end
 end

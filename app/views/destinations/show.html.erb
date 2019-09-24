@@ -1,14 +1,18 @@
 <h1>Show</h1>
 <div>
-
 <label>Name: <%= @destination.name %> </label><br>
-<label>Bio: <%= @destination.bio %></label><br>
-<label>Age: <%= @destination.age%></label><br>
-<label>Likes: <%= @destination.posts.sum {|post| post.likes}%></label><br>
-</div><br>
+<label>Country: <%= @destination.country %></label><br>
+<label>Most recent posts:</label><br>
+<ul>
+<% @destination.posts.last(5).each do |post|%>
+    <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+</ul>
 
-<p><%= link_to "Featured Post", post_path(@destination.posts.max_by {|post| post.likes}) if @destination.posts.count > 0 %></p><br>
+<%= link_to "Feature Posts", destination_path(@destination.posts.max_by {|post| post.likes}) if @destination.posts.count > 0 %>
 
 <%= link_to "Edit??", edit_destination_path(@destination) %>
 <%= link_to "Index??", destinations_path %>
+
+
 
