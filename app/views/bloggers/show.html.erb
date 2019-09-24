@@ -4,7 +4,10 @@
 <label>Name: <%= @blogger.name %> </label><br>
 <label>Bio: <%= @blogger.bio %></label><br>
 <label>Age: <%= @blogger.age%></label><br>
+<label>Likes: <%= @blogger.posts.sum {|post| post.likes}%></label><br>
 </div><br>
+
+<p><%= link_to "Featured Post", post_path(@blogger.posts.max_by {|post| post.likes}) if @blogger.posts.count > 0 %></p><br>
 
 <%= link_to "Edit??", edit_blogger_path(@blogger) %>
 <%= link_to "Index??", bloggers_path %>

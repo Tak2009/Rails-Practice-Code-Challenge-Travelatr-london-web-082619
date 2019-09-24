@@ -1,0 +1,14 @@
+<h1>Show</h1>
+<div>
+
+<label>Name: <%= @destination.name %> </label><br>
+<label>Bio: <%= @destination.bio %></label><br>
+<label>Age: <%= @destination.age%></label><br>
+<label>Likes: <%= @destination.posts.sum {|post| post.likes}%></label><br>
+</div><br>
+
+<p><%= link_to "Featured Post", post_path(@destination.posts.max_by {|post| post.likes}) if @destination.posts.count > 0 %></p><br>
+
+<%= link_to "Edit??", edit_destination_path(@destination) %>
+<%= link_to "Index??", destinations_path %>
+
