@@ -27,7 +27,8 @@ class BloggersController < ApplicationController
 
   def update
     @blogger = Blogger.find(params[:id])
-    if @blogger.update(blogger_params)
+    @blogger.update(blogger_params)
+    if @blogger.valid?
       redirect_to blogger_path(@blogger)
     else
       render :edit
