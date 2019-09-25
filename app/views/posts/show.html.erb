@@ -4,6 +4,9 @@
 <label>Title: <%= @post.title %> </label><br>
 <label>Content: <%= @post.content %></label><br>
 <label>Likes: <%= @post.likes%></label><br>
+<%= link_to @post.blogger.name, blogger_path(@post.blogger) %> 
+<%= link_to @post.destination.name, destination_path(@post.destination) %>
+<%= link_to "Like", like_path(@post) %> 
 
 </div><br>
 

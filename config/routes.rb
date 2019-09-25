@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/posts/:id/edit", to: "posts#edit", as: "edit_post"
   patch "/posts/:id", to: "posts#update"
   delete "/posts/:id", to: "posts#destroy"
+  get "/posts/:id/like", to: "posts#like", as: "like"
   
 
 end
